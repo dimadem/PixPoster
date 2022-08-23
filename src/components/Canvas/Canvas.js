@@ -3,41 +3,49 @@
 // inspired by Tim Rodenbröker & his youtube channel
 // So Tim if you being there - thank you!
 // https://www.youtube.com/watch?v=KL_b6eTm9Ag&t=1934s
+// components
 
-// const variables
-const fr = 60;
-const pd = 1.0;
-const cW = 1752;
+// Resolutios
+const cW = 1652;
 const cH = 810;
 const wW = 584;
 const wH = 810;
 
-// variables
+// working with img
 let images = [];
 let currentImage;
 let source, target, result; // canvases
 let sx, sy, sw, sh, dx, dy, dw, dh; // copy
 
 // interface
-let button;
-let thresholdBrightness = 57;
+const fr = 60;
+let thresholdBrightness = 25;
 
 // TILE for result
 // One PIXEL
-let TILES_X = wW / 9;
-let TILES_Y = wH / 9;
+let TILES_X = wW / 11;
+let TILES_Y = wH / 11;
 let tileW, tileH;
 let px, py;
-let colors = [];
 
 // magic effects
 let c, b; // colour, brightness
 let scalar = 1; // scale source
 let offsetX = 0; // position source
 let offsetY = 0;
-let sq = -70; // square size
+let sq = -50; // square size
 
-function Canvas(p5) {
+export default function Canvas(p5) {
+  let imageArray = [];
+  // load image from JSON to canvas
+  p5.updateWithProps = (props) => {
+    if (props.items) {
+      imageArray = props.items;
+      console.log(imageArray);
+      // items = //some data
+    }
+  };
+
   //   p5.preload = () => {
   //     for (let i = 1; i <= 4; i++) {
   //       images.push(p5.loadImage("./img/1.JPG"));
@@ -59,10 +67,12 @@ function Canvas(p5) {
     result = p5.createGraphics(wW, wH);
 
     // first image on drawTarget this is demo add api
-    // currentImage = p5.loadImage(props.image);
+    currentImage = p5.loadImage(imageArray);
   };
   //
   p5.draw = () => {
+    // p5.background(241, 241, 241);
+
     // draw functions
     drawSource();
     drawTarget();
@@ -70,8 +80,8 @@ function Canvas(p5) {
 
     // frames
     p5.image(source, 0, 0);
-    p5.image(target, wW, 0);
-    p5.image(result, wW * 2, 0);
+    // p5.image(target, wW, 0); // collage
+    p5.image(result, wW, 0); // pixelised
 
     // copy brush
     p5.noFill();
@@ -111,16 +121,13 @@ function Canvas(p5) {
     // copy picture to buffer
     let sourceBuffer = source.get();
 
-    // target.background(241, 241, 241);
-
     // freeze background
-    // if (p5.frameRate === 1) {
-    //   target.background(0);
-    // }
+    if (p5.frameRate === 1) {
+      target.background(241, 241, 241);
+    }
 
     //copy-paste square
     if (p5.mouseIsPressed) {
-      //   target.background(421, 421, 421);
       target.copy(sourceBuffer, sx, sy, sw, sh, dx, dy, dw, dh);
     }
   }
@@ -206,5 +213,3 @@ function Canvas(p5) {
   //   resizeCanvas(windowWidth, windowHeight);
   // };
 }
-
-export default Canvas;
