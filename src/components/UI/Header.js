@@ -1,7 +1,7 @@
-import InputRequest from "../../API/InputRequest";
+import InputRequest from "./InputRequest";
 import MainButton from "./MainButton";
 
-export default function Header(params) {
+export default function Header() {
   return (
     <>
       <div className="header">

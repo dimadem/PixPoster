@@ -5,6 +5,11 @@
 // https://www.youtube.com/watch?v=KL_b6eTm9Ag&t=1934s
 // components
 
+// Props for
+// loading images from JSON
+// keypressd events
+// mouseWheell events
+
 // Resolutios
 const cW = 1652;
 const cH = 810;
@@ -14,6 +19,8 @@ const wH = 810;
 // working with img
 let images = [];
 let currentImage;
+let imageLink =
+  "https://media1.giphy.com/media/l3vQY93bN54rXJTrO/giphy.gif?cid=b3f2a308cpljh6om7ndpnqwiiwr3gyz7e99b5eftnc0u6q3l&rid=giphy.gif&ct=g";
 let source, target, result; // canvases
 let sx, sy, sw, sh, dx, dy, dw, dh; // copy
 
@@ -33,24 +40,12 @@ let c, b; // colour, brightness
 let scalar = 1; // scale source
 let offsetX = 0; // position source
 let offsetY = 0;
-let sq = -50; // square size
+let sq = -100; // square size
 
 export default function Canvas(p5) {
-  let imageArray = [];
-  // load image from JSON to canvas
-  p5.updateWithProps = (props) => {
-    if (props.items) {
-      imageArray = props.items;
-      console.log(imageArray);
-      // items = //some data
-    }
+  p5.preload = () => {
+    currentImage = p5.loadImage(imageLink);
   };
-
-  //   p5.preload = () => {
-  //     for (let i = 1; i <= 4; i++) {
-  //       images.push(p5.loadImage("./img/1.JPG"));
-  //     }
-  //   };
 
   p5.setup = () => {
     // basic setup
@@ -65,22 +60,31 @@ export default function Canvas(p5) {
     source = p5.createGraphics(wW, wH);
     target = p5.createGraphics(wW, wH);
     result = p5.createGraphics(wW, wH);
-
-    // first image on drawTarget this is demo add api
-    currentImage = p5.loadImage(imageArray);
   };
-  //
+
+  // load image from JSON to canvas
+  p5.updateWithProps = ({ dataLink }) => {
+    if (dataLink) {
+      imageLink = dataLink;
+      console.log("imglink:", imageLink);
+      currentImage = p5.loadImage(imageLink);
+    }
+  };
+
   p5.draw = () => {
     // p5.background(241, 241, 241);
-
     // draw functions
+
     drawSource();
     drawTarget();
     drawResult();
 
+    // keyPressed();
+    // mouseWheel();
+
     // frames
     p5.image(source, 0, 0);
-    // p5.image(target, wW, 0); // collage
+    p5.image(target, wW, 0); // collage
     p5.image(result, wW, 0); // pixelised
 
     // copy brush
@@ -102,7 +106,7 @@ export default function Canvas(p5) {
     source.imageMode(p5.CENTER);
     source.push();
     source.translate(source.width / 2 + offsetX, source.height / 2 + offsetY);
-    source.scale(scalar);
+    // source.scale(scalar);
     source.image(currentImage, 0, 0);
     source.pop();
   }
@@ -168,48 +172,4 @@ export default function Canvas(p5) {
       }
     }
   }
-
-  // key change image
-  function keyPressed() {
-    // 1, 2, 3, 4 photos
-    if (keyCode === 49) {
-      currentImage = images[0];
-      console.log(currentImage);
-    }
-    if (keyCode === 50) {
-      currentImage = images[1];
-      console.log(currentImage);
-    }
-    if (keyCode === 51) {
-      currentImage = images[2];
-    }
-    if (keyCode === 52) {
-      currentImage = images[3];
-    }
-    // r - random scale and position
-    if (keyCode === 82) {
-      scalar = random(1, 5);
-      offsetX = random(-800, 800);
-      offsetY = random(-800, 800);
-    }
-
-    // consoles
-    console.log(key, "key");
-    console.log(keyCode, "KeyCode");
-  }
-
-  // ui square size
-  function mouseWheel(event) {
-    console.log(event.delta);
-    //move the square according to the vertical scroll amount
-    sq += event.delta;
-
-    //uncomment to block page scrolling
-    //return false;
-  }
-
-  // This Redraws the Canvas when resized
-  // windowResized = function () {
-  //   resizeCanvas(windowWidth, windowHeight);
-  // };
 }
