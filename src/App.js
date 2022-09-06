@@ -1,10 +1,10 @@
 import "./App.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { ReactP5Wrapper } from "react-p5-wrapper";
 import Canvas from "./components/Canvas/Canvas";
 import Footer from "./components/UI/Footer";
-import useFetch from "./components/api/useFetch.hook.js";
+import useFetch from "./components/hooks/useFetch.hook.js";
 
 function App() {
   // save input word not controlled
@@ -12,6 +12,7 @@ function App() {
   const [input, setInput] = useState();
 
   // array of data
+  const [json, setJson] = useState([]);
   const [data, setData] = useState("");
   const { get } = useFetch();
 
@@ -22,32 +23,87 @@ function App() {
     apiKey = "&api_key=nH3yJQf4ugZ49t2IblSy9XBRHZLRo9iP",
     requestUrl = link + keyWord + apiKey;
 
-  // focus on form input
+  //  10 images to ctrl + 0-9 keys
+
+  const handleKeyPress = useCallback(
+    (event) => {
+      if (event.ctrlKey && event.key === "1") {
+        let ev = json.data[0].images.original.url;
+        setData(ev);
+      }
+
+      if (event.ctrlKey && event.key === "2") {
+        let ev = json.data[1].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "3") {
+        let ev = json.data[2].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "4") {
+        let ev = json.data[3].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "5") {
+        let ev = json.data[4].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "6") {
+        let ev = json.data[5].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "7") {
+        let ev = json.data[6].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "8") {
+        let ev = json.data[7].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "9") {
+        let ev = json.data[8].images.original.url;
+        setData(ev);
+      }
+      if (event.ctrlKey && event.key === "0") {
+        let ev = json.data[9].images.original.url;
+        setData(ev);
+      }
+    },
+    [json]
+  );
+
   useEffect(() => {
+    // focus on input form
     txtTitle.current.focus();
-  }, []);
+
+    // attach the event listener
+    document.addEventListener("keydown", handleKeyPress);
+
+    // remove the event listener
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   // send request to API
   function handleFormSubmit(e) {
     e.preventDefault();
     txtTitle.current.value = "";
     get(requestUrl)
-      .then((data) => {
-        data = data.data[0].images.original.url;
-        // data = data.data[0].embed_url;
-        setData(data);
+      .then((json) => {
+        // data = data.data[0].images.original.url;
+        // data = data.data[0].images.480w_still.url; // before 480??
+        // json = json.data;
+        setJson(json);
       })
       .catch((error) => console.log(error));
   }
-  console.log("FETCH DATA:", `${keyWord}`, data);
+  console.log("FETCH DATA:", `${keyWord}`, json);
 
   // PropTypes
   App.propTypes = {
     data: PropTypes.string.isRequired,
   };
-
-  // create image array with 10 images
-  // set 10 images to keys 1-0
 
   return (
     <div className="App">

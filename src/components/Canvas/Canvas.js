@@ -11,10 +11,10 @@
 // mouseWheell events
 
 // Resolutios
-const cW = 1652;
-const cH = 810;
-const wW = 584;
-const wH = 810;
+const cW = 1312;
+const cH = 896;
+const wW = 656;
+const wH = 896;
 
 // working with img
 let images = [];
@@ -26,7 +26,7 @@ let sx, sy, sw, sh, dx, dy, dw, dh; // copy
 
 // interface
 const fr = 60;
-let thresholdBrightness = 25;
+let thresholdBrightness = 75;
 
 // TILE for result
 // One PIXEL
@@ -159,11 +159,7 @@ export default function Canvas(p5) {
         // brightness
         b = p5.brightness(c);
 
-        if (b > thresholdBrightness) {
-          result.fill(0);
-        } else {
-          result.fill(241, 241, 241);
-        }
+        b < thresholdBrightness ? result.fill(241, 241, 241) : result.fill(0);
 
         result.push();
         result.translate(col * tileW, row * tileH);
