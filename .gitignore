@@ -27,3 +27,4 @@ yarn-error.log*
 
 # refactoring components
 /src/components/hooks/useKeyPress.hook.js
+/src/components/UI/Slider.js

@@ -1,5 +1,9 @@
 /* eslint-disable no-undef, no-unused-vars */
 
+import "p5.js-svg";
+
+//https://gorillasun.de/blog/working-with-svgs-in-p5js
+
 // inspired by Tim Rodenbröker & his youtube channel
 // So Tim if you being there - thank you!
 // https://www.youtube.com/watch?v=KL_b6eTm9Ag&t=1934s
@@ -12,9 +16,9 @@
 
 // Resolutios
 const cW = 1312;
-const cH = 896;
+const cH = 796;
 const wW = 656;
-const wH = 896;
+const wH = 796;
 
 // working with img
 let images = [];
@@ -30,8 +34,9 @@ let thresholdBrightness = 75;
 
 // TILE for result
 // One PIXEL
-let TILES_X = wW / 11;
-let TILES_Y = wH / 11;
+let divider = (wW + wH) / (wH - wW / 2);
+let TILES_X = wW / divider;
+let TILES_Y = wH / divider;
 let tileW, tileH;
 let px, py;
 
@@ -40,7 +45,7 @@ let c, b; // colour, brightness
 let scalar = 1; // scale source
 let offsetX = 0; // position source
 let offsetY = 0;
-let sq = -100; // square size
+let sq = -30; // square size
 
 export default function Canvas(p5) {
   p5.preload = () => {
@@ -49,35 +54,44 @@ export default function Canvas(p5) {
 
   p5.setup = () => {
     // basic setup
-    p5.frameRate(fr);
-    p5.colorMode(p5.RGB, 255, 255, 255, 255);
+    // p5.frameRate(fr);
+    // p5.colorMode(p5.RGB, 255, 255, 255, 255);
 
     // main canvas
     p5.createCanvas(cW, cH);
-    p5.background(241, 241, 241);
+    p5.background(158, 150, 255);
 
     // canvases setup
     source = p5.createGraphics(wW, wH);
     target = p5.createGraphics(wW, wH);
-    result = p5.createGraphics(wW, wH);
+    result = p5.createGraphics(wW, wH, p5.SVG);
   };
 
   // load image from JSON to canvas
-  p5.updateWithProps = ({ dataLink }) => {
+  p5.updateWithProps = ({ dataLink, brightness, sizeRectangle }) => {
     if (dataLink) {
       imageLink = dataLink;
       console.log("imglink:", imageLink);
       currentImage = p5.loadImage(imageLink);
     }
+    if (brightness) {
+      thresholdBrightness = brightness;
+    }
+
+    if (sizeRectangle) {
+      sq = sizeRectangle;
+    }
   };
 
   p5.draw = () => {
     // p5.background(241, 241, 241);
-    // draw functions
 
+    // draw functions
     drawSource();
-    drawTarget();
-    drawResult();
+    if (p5.mouseIsPressed) {
+      drawTarget();
+      drawResult();
+    }
 
     // keyPressed();
     // mouseWheel();
@@ -145,7 +159,8 @@ export default function Canvas(p5) {
     let bufferTarget = target.get();
 
     // BG COLOR
-    result.background(241, 241, 241);
+    // result.background(158, 150, 255);
+    // result.background(241, 241, 241);
     result.noStroke();
 
     for (let col = 0; col < TILES_X; col++) {
@@ -167,5 +182,7 @@ export default function Canvas(p5) {
         result.pop();
       }
     }
+
+    // p5.save(result, `${name}.png`);
   }
 }

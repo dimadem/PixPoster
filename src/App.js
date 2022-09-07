@@ -5,13 +5,18 @@ import { ReactP5Wrapper } from "react-p5-wrapper";
 import Canvas from "./components/Canvas/Canvas";
 import Footer from "./components/UI/Footer";
 import useFetch from "./components/hooks/useFetch.hook.js";
+import MainMenu from "./components/UI/MainMenu";
 
 function App() {
-  // save input word not controlled
+  // input not controlled
   const txtTitle = useRef();
   const [input, setInput] = useState();
 
-  // array of data
+  // sliders ui
+  const [brightness, setBrightness] = useState(75);
+  const [sizeRectangle, setSizeRectangle] = useState(-150);
+
+  // data, json, get
   const [json, setJson] = useState([]);
   const [data, setData] = useState("");
   const { get } = useFetch();
@@ -107,26 +112,72 @@ function App() {
 
   return (
     <div className="App">
-      <form className="inputForm" onSubmit={handleFormSubmit}>
-        <label>
-          Input_
-          <input
-            ref={txtTitle}
-            className="input"
-            type="text"
-            inputMode="latin"
-            required
-          />
-        </label>
-        <input
-          type="submit"
-          onClick={() => {
-            setInput(txtTitle.current.value);
-          }}
+      <div className="Header-container">
+        <div className="form-container">
+          <form className="inputForm" onSubmit={handleFormSubmit}>
+            <label htmlFor="search" hidden="enabled">
+              search
+            </label>
+            <input
+              ref={txtTitle}
+              className="search"
+              type="text"
+              inputMode="latin"
+              required
+            />
+            <input
+              hidden="enabled"
+              type="submit"
+              onClick={() => {
+                setInput(txtTitle.current.value);
+              }}
+            />
+          </form>
+        </div>
+        <div className="Slider-rectangle">
+          <div className="Slider-wrapper">
+            <input
+              className="slider"
+              type="range"
+              min={-250}
+              max={-20}
+              step={5}
+              value={sizeRectangle}
+              onChange={(event) => {
+                setSizeRectangle(event.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="Slider-brightness">
+          <div className="Slider-wrapper">
+            <input
+              className="slider"
+              type="range"
+              min={25}
+              max={100}
+              step={1}
+              value={brightness}
+              onChange={(event) => {
+                setBrightness(event.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="logo-container">
+          <label>GifPoster</label>
+        </div>
+        <div className="main-button">
+          <MainMenu />
+        </div>
+      </div>
+      <div className="canvas-container">
+        <ReactP5Wrapper
+          sketch={Canvas}
+          dataLink={data}
+          brightness={brightness}
+          sizeRectangle={sizeRectangle}
         />
-      </form>
-      <div className="Canvas">
-        <ReactP5Wrapper sketch={Canvas} dataLink={data} />
       </div>
       <Footer />
     </div>
