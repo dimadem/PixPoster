@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState, useRef, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { ReactP5Wrapper } from "react-p5-wrapper";
@@ -111,67 +110,65 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="Header-container">
-        <div className="form-container">
-          <form className="inputForm" onSubmit={handleFormSubmit}>
-            <label htmlFor="search" hidden="enabled">
-              search
-            </label>
-            <input
-              ref={txtTitle}
-              className="search"
-              type="text"
-              inputMode="latin"
-              required
-            />
-            <input
-              hidden="enabled"
-              type="submit"
-              onClick={() => {
-                setInput(txtTitle.current.value);
-              }}
-            />
-          </form>
-        </div>
-        <div className="Slider-rectangle">
-          <div className="Slider-wrapper">
-            <input
-              className="slider"
-              type="range"
-              min={-250}
-              max={-20}
-              step={5}
-              value={sizeRectangle}
-              onChange={(event) => {
-                setSizeRectangle(event.target.value);
-              }}
-            />
+    <div className="min-h-full text-center bg-transparent">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex items-center justify-between pt-5 pb-4 md:justify-start md:space-x-10">
+          <div className="grid grid-cols-3 lg:w-0 lg:flex-1">
+            <form className="m-auto border-2" onSubmit={handleFormSubmit}>
+              <label htmlFor="search" hidden="enabled">
+                search
+              </label>
+              <input
+                ref={txtTitle}
+                className="search"
+                type="text"
+                inputMode="latin"
+                required
+              />
+              <input
+                hidden="enabled"
+                type="submit"
+                onClick={() => {
+                  setInput(txtTitle.current.value);
+                }}
+              />
+            </form>
+            <div className="m-auto text-4xl text-slate-900">
+              <label>PixPoster</label>
+            </div>
+            <div className="m-auto main-button">
+              <MainMenu />
+            </div>
           </div>
-        </div>
-        <div className="Slider-brightness">
-          <div className="Slider-wrapper">
-            <input
-              className="slider"
-              type="range"
-              min={25}
-              max={100}
-              step={1}
-              value={brightness}
-              onChange={(event) => {
-                setBrightness(event.target.value);
-              }}
-            />
-          </div>
-        </div>
-        <div className="logo-container">
-          <label>GifPoster</label>
-        </div>
-        <div className="main-button">
-          <MainMenu />
         </div>
       </div>
-      <div className="canvas-container">
+      <div className="absolute top-1/3 left-1">
+        <input
+          className="w-30 h-20 m-0 origin-center rotate-90"
+          type="range"
+          min={-250}
+          max={-20}
+          step={5}
+          value={sizeRectangle}
+          onChange={(event) => {
+            setSizeRectangle(event.target.value);
+          }}
+        />
+      </div>
+      <div className="absolute top-1/3 right-1">
+        <input
+          className="w-30 h-20 m-0 origin-center rotate-90"
+          type="range"
+          min={55}
+          max={90}
+          step={1}
+          value={brightness}
+          onChange={(event) => {
+            setBrightness(event.target.value);
+          }}
+        />
+      </div>
+      <div className="inline-block">
         <ReactP5Wrapper
           sketch={Canvas}
           dataLink={data}
