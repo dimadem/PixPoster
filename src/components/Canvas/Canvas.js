@@ -1,5 +1,7 @@
 /* eslint-disable no-undef, no-unused-vars */
 
+import { data } from "autoprefixer";
+
 // inspired by Tim Rodenbröker & his youtube channel
 // So Tim if you being there - thank you!
 // https://www.youtube.com/watch?v=KL_b6eTm9Ag&t=1934s
@@ -16,9 +18,8 @@ const wH = 680;
 
 // img
 let currentImage; // is loaded to source
-let imageLink =
-  "https://media1.giphy.com/media/l3vQY93bN54rXJTrO/giphy.gif?cid=b3f2a308cpljh6om7ndpnqwiiwr3gyz7e99b5eftnc0u6q3l&rid=giphy.gif&ct=g";
-var savePicture;
+let imageLink; //
+let dataLink; //
 
 // canvases
 let source, target, result; // canvases
@@ -42,7 +43,7 @@ let sq = -30; // square size
 export default function Canvas(p5) {
   p5.preload = () => {
     // first image
-    currentImage = p5.loadImage(imageLink);
+    // currentImage = p5.loadImage(imageLink);
 
     // pixeled Canvas
     tileW = wW / TILES_X;
@@ -105,11 +106,9 @@ export default function Canvas(p5) {
 
   p5.draw = () => {
     // draw functions
-    drawSource();
+    if (imageLink) drawSource();
     drawTarget();
-    if (p5.mouseIsPressed) {
-      drawResult();
-    }
+    if (p5.mouseIsPressed) drawResult();
 
     // frames
     p5.image(source, 0, 0); // original
@@ -190,6 +189,5 @@ export default function Canvas(p5) {
         result.pop();
       }
     }
-    // p5.save(result, `${name}.png`);
   }
 }
