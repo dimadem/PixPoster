@@ -1,4 +1,4 @@
-<h2 align="center> 🔳 PixPoster 🔲 </h1>
+# 🔳 PixPoster 🔲
 
 <p align="center">Final project for M-C-S </p>
 
