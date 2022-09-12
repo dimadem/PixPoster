@@ -1,6 +1,6 @@
-# 🔳 PixPoster 🔲
+<h1 align="center> 🔳 PixPoster 🔲 </h1>
 
-Final project for M-C-S
+<p align="center">Final project for M-C-S </p>
 
 ### Description:
 
@@ -10,13 +10,24 @@ Pixel abstraction is far from a work of art, minimalism will allow you to concen
 
 ---
 
+### How to use
+
 ### 💡 Start with search input => choose between diferent variations
 
 ### 🖱 Click a stamp from left canvas => scale it => move it
 
-### 💾 Save your work as PNG to your Computer
+### 💾 Save your work as .png to your computer
 
 <br/>
+
+## How to install:
+
+1. Install via git clone
+2. npm install
+3. npm start
+4. Use http://localhost:3000
+
+---
 
 It was interesting to consider the interaction two popular libraries React and p5js.
 
