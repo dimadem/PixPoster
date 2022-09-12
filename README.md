@@ -1,8 +1,8 @@
-### 🔳 PixPoster 🔲
+# 🔳 PixPoster 🔲
 
 Final project for M-C-S
 
-# Description:
+### Description:
 
 It's weird, but it can be hard to start building something from scratch. We need abstraction as a starting point, which is inspired by what we see.
 
@@ -10,11 +10,11 @@ Pixel abstraction is far from a work of art, minimalism will allow you to concen
 
 ---
 
-## 💡 Start with search input => choose between diferent variations
+### 💡 Start with search input => choose between diferent variations
 
-## 🖱 Click a stamp from left canvas => scale it => move it
+### 🖱 Click a stamp from left canvas => scale it => move it
 
-## 💾 Save your work as PNG to your Computer
+### 💾 Save your work as PNG to your Computer
 
 <br/>
 
