@@ -212,7 +212,7 @@ function App() {
           <input
             className="w-30 h-20 m-0 origin-center rotate-90"
             type="range"
-            min={55}
+            min={35}
             max={90}
             step={1}
             value={brightness}

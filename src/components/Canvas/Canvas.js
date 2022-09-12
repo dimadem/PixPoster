@@ -1,7 +1,5 @@
 /* eslint-disable no-undef, no-unused-vars */
 
-import { data } from "autoprefixer";
-
 // inspired by Tim Rodenbröker & his youtube channel
 // So Tim if you being there - thank you!
 // https://www.youtube.com/watch?v=KL_b6eTm9Ag&t=1934s
@@ -41,6 +39,8 @@ let offsetY = 0; // pos Y
 let sq = -30; // square size
 
 export default function Canvas(p5) {
+  p5.disableFriendlyErrors = true; // disables FES
+
   p5.preload = () => {
     // first image
     // currentImage = p5.loadImage(imageLink);
