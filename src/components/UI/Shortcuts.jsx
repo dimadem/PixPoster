@@ -4,9 +4,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 // modal screen
-export default function Shortcuts() {
-  const [open, setOpen] = useState(true);
-
+export default function Shortcuts(props) {
+  const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
 
   return (

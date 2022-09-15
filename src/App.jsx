@@ -8,6 +8,7 @@ import Welcome from "./components/UI/Welcome";
 import Header from "./components/UI/Header";
 import InputRequest from "./components/UI/InputRequest";
 import MainMenu from "./components/UI/MainMenu";
+import Shortcuts from "./components/UI/Shortcuts";
 
 function App() {
   // login page (comp)
@@ -126,7 +127,7 @@ function App() {
     // focus on input form
     // txtTitle.current.focus();
 
-    console.log(click);
+    // console.log("useClick state: ", click);
     // attach the event listener
     document.addEventListener("keydown", handleKeyPress);
 
@@ -149,7 +150,7 @@ function App() {
       })
       .catch((error) => console.log(error));
   }
-  console.log("FETCH DATA:", `${keyWord}`, json);
+  // console.log("FETCH DATA:", `${keyWord}`, json);
 
   // PropTypes
   App.propTypes = {
@@ -160,6 +161,7 @@ function App() {
     return (
       <div className="min-h-full text-center bg-transparent">
         <Header
+          shortCuts={<Shortcuts onClick={true} />}
           inputRequest={
             <InputRequest
               onTxtTitle={txtTitle}
@@ -171,7 +173,13 @@ function App() {
           }
           mainMenu={
             <MainMenu
-              onClick={() => {
+              clickShortCut={() => {
+                setClick((current) => !current);
+                setTimeout(() => {
+                  setClick((current) => !current);
+                }, 300);
+              }}
+              clickSave={() => {
                 setClick((current) => !current);
                 setTimeout(() => {
                   setClick((current) => !current);

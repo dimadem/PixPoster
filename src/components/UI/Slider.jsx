@@ -1,9 +1,4 @@
-import { useRef } from "react";
-
-//do slider
 export default function Slider(props) {
-  const slider = useRef();
-  console.log("Slider: ", slider);
   return (
     <input
       type="range"

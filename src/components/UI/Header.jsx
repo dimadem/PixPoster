@@ -5,6 +5,7 @@ export default function Header(props) {
         <div className="grid grid-cols-3 lg:w-0 lg:flex-1">
           {props.inputRequest}
           <div className="m-auto text-4xl text-slate-900">
+            {props.shortCuts}
             <label>PixPoster</label>
           </div>
           <div className="mainMenu">{props.mainMenu}</div>

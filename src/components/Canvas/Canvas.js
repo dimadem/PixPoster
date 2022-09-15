@@ -17,7 +17,7 @@ const wH = 680;
 // img
 let currentImage; // is loaded to source
 let imageLink; //
-let dataLink; //
+let savePicture;
 
 // canvases
 let source, target, result; // canvases
@@ -98,9 +98,9 @@ export default function Canvas(p5) {
       offsetX = offX;
       offsetY = offY;
       scalar = scale;
-      console.log("OffsetX: ", offsetX);
-      console.log("OffsetY: ", offsetY);
-      console.log("Scale: ", scalar);
+      // console.log("OffsetX: ", offsetX);
+      // console.log("OffsetY: ", offsetY);
+      // console.log("Scale: ", scalar);
     }
   };
 
