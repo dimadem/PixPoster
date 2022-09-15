@@ -1,6 +1,6 @@
 <h1 align="center">🔳 PixPoster 🔲</h1>
 
-<p align="center"> [![Netlify Status](https://api.netlify.com/api/v1/badges/486211d0-7bbd-46de-a2ff-5e92407667cb/deploy-status)](https://app.netlify.com/sites/pixposter/deploys) </p>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/486211d0-7bbd-46de-a2ff-5e92407667cb/deploy-status)](https://app.netlify.com/sites/pixposter/deploys)
 
 <p align="center">Final project for M-C-S </p>
 
