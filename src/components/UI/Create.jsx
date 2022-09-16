@@ -42,52 +42,52 @@ export default function Create(props) {
 
       //  10 images to ctrl + 0-9 keys
       if (event.altKey && event.key === "1") {
-        let ev = json.data[0].images.original.url;
+        let ev = json.data[0].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "2") {
-        let ev = json.data[1].images.original.url;
+        let ev = json.data[1].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "3") {
-        let ev = json.data[2].images.original.url;
+        let ev = json.data[2].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "4") {
-        let ev = json.data[3].images.original.url;
+        let ev = json.data[3].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "5") {
-        let ev = json.data[4].images.original.url;
+        let ev = json.data[4].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "6") {
-        let ev = json.data[5].images.original.url;
+        let ev = json.data[5].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "7") {
-        let ev = json.data[6].images.original.url;
+        let ev = json.data[6].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "8") {
-        let ev = json.data[7].images.original.url;
+        let ev = json.data[7].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "9") {
-        let ev = json.data[8].images.original.url;
+        let ev = json.data[8].images.preview_gif.url;
         setData(ev);
       }
 
       if (event.altKey && event.key === "0") {
-        let ev = json.data[9].images.original.url;
+        let ev = json.data[9].images.preview_gif.url;
         setData(ev);
       }
 
@@ -149,8 +149,10 @@ export default function Create(props) {
         // data = data.data[0].images.480w_still.url; // before 480??
         // json = json.data;
         setJson(json);
-        setData(json.data[0].images.original.url);
+        console.log(json);
+        setData(json.data[0].images.preview_gif.url);
       })
+
       .catch((error) => console.log(error));
   }
   // console.log("FETCH DATA:", `${keyWord}`, json);
@@ -211,7 +213,6 @@ export default function Create(props) {
           />
         </div>
       </div>
-      );
     </>
   );
 }

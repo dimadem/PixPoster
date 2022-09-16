@@ -24,7 +24,7 @@ yarn-error.log*
 
 # my
 /original_gifposter-p5
-/materials
+
 
 # refactoring components
 /src/components/hooks/useKeyPress.hook.jsx
