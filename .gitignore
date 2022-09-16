@@ -27,9 +27,9 @@ yarn-error.log*
 /materials
 
 # refactoring components
-/src/components/hooks/useKeyPress.hook.js
-/src/components/UI/Slider.js
-/src/components/UI/MainMenu.js
-/src/components/UI/Welcome.js
-/src/components/UI/ItemCard.js
-/src/components/UI/Gallery.js
+/src/components/hooks/useKeyPress.hook.jsx
+/src/components/UI/Slider.jsx
+/src/components/UI/MainMenu.jsx
+/src/components/UI/Welcome.jsx
+/src/components/UI/ItemCard.jsx
+/src/components/UI/Gallery.jsx
