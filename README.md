@@ -2,6 +2,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/486211d0-7bbd-46de-a2ff-5e92407667cb/deploy-status)](https://app.netlify.com/sites/pixposter/deploys)
 
+![alt text](https://github.com/dimadem/pixposter/blob/main/materials/readmepic.png?raw=true)
+
+
 <p align="center">Final project for M-C-S </p>
 
 ### Description:
