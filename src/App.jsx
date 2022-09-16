@@ -7,5 +7,5 @@ function App() {
   const [login, setLogin] = useState(false);
 
   return login ? <Create /> : <Welcome onClick={() => setLogin(true)} />;
-
+}
 export default App;
