@@ -45,6 +45,7 @@ export default function MainMenu(props) {
               {({ active }) => (
                 <a
                   href="/#"
+                  onClick={props.clickShortCut}
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
@@ -87,6 +88,7 @@ export default function MainMenu(props) {
             <Menu.Item>
               {({ active }) => (
                 <a
+                  onClick={props.clickSave}
                   href="/#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
