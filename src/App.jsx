@@ -127,7 +127,6 @@ function App() {
     // focus on input form
     // txtTitle.current.focus();
 
-    // console.log("useClick state: ", click);
     // attach the event listener
     document.addEventListener("keydown", handleKeyPress);
 
@@ -135,7 +134,14 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [handleKeyPress, click]);
+  }, [handleKeyPress]);
+
+  function onHandleClick() {
+    setClick((current) => !current);
+    setTimeout(() => {
+      setClick((current) => !current);
+    }, 300);
+  }
 
   // send request to API
   function handleFormSubmit(e) {
@@ -171,22 +177,7 @@ function App() {
               onHandleFormSubmit={handleFormSubmit}
             />
           }
-          mainMenu={
-            <MainMenu
-              clickShortCut={() => {
-                setClick((current) => !current);
-                setTimeout(() => {
-                  setClick((current) => !current);
-                }, 300);
-              }}
-              clickSave={() => {
-                setClick((current) => !current);
-                setTimeout(() => {
-                  setClick((current) => !current);
-                }, 300);
-              }}
-            />
-          }
+          mainMenu={<MainMenu clickSave={onHandleClick} />}
         />
         <div className="absolute top-1/2 right-1">
           <Slider
