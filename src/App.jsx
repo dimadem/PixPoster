@@ -1,11 +1,14 @@
-import { useState } from "react";
-import Create from "./components/UI/Create";
-import Welcome from "./components/UI/Welcome";
+import AppContent from "./components/AppContent";
+import AppStateProvider from "./components/redux/AppStateProvider";
+import { StrictMode } from "react";
 
 function App() {
-  // login page (comp)
-  const [login, setLogin] = useState(false);
-
-  return login ? <Create /> : <Welcome onClick={() => setLogin(true)} />;
+  return (
+    <StrictMode>
+      <AppStateProvider>
+        <AppContent />
+      </AppStateProvider>
+    </StrictMode>
+  );
 }
 export default App;

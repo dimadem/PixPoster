@@ -5,7 +5,8 @@
 // https://www.youtube.com/watch?v=KL_b6eTm9Ag&t=1934s
 // ----- ----- ----- ----- -----
 
-//https://gorillasun.de/blog/working-with-svgs-in-p5js
+// next update
+// https://gorillasun.de/blog/working-with-svgs-in-p5js
 // import "p5.js-svg";
 
 // Resolutios
@@ -41,6 +42,8 @@ let sq = -30; // square size
 export default function Canvas(p5) {
   p5.disableFriendlyErrors = true; // disables FES
 
+  p5.state = {};
+
   p5.preload = () => {
     // first image
     // currentImage = p5.loadImage(imageLink);
@@ -60,11 +63,12 @@ export default function Canvas(p5) {
     result = p5.createGraphics(wW, wH);
 
     // bg canvases
-    result.background(255, 150, 150, 30);
-    source.background(143, 201, 255, 30);
+    // result.background(255, 150, 150, 30);
+    result.background(241, 241, 241, 30);
+    // source.background(143, 201, 255, 30);
   };
 
-  // load image from JSON to canvas
+  // PROPS FUNCTIONS
   p5.updateWithProps = ({
     dataLink,
     brightness,
@@ -74,25 +78,21 @@ export default function Canvas(p5) {
     scale,
     onSave,
   }) => {
-    if (onSave === true) {
-      savePicture = p5.save(result);
-    }
+    if (onSave === true) savePicture = p5.save(result);
+
     // prop ImageLink
     if (dataLink) {
       imageLink = dataLink;
       currentImage = p5.loadImage(imageLink);
-      console.log("imglink:", imageLink);
+      console.log("imglink from Canvas:", imageLink);
     }
 
     // prop brightness
-    if (brightness) {
-      thresholdBrightness = brightness;
-    }
+    if (brightness) thresholdBrightness = brightness;
 
     // prop sizeRect
-    if (sizeRectangle) {
-      sq = sizeRectangle;
-    }
+    if (sizeRectangle) sq = sizeRectangle;
+
     // prop offsetX
     if (offX || offY || scale) {
       offsetX = offX;
@@ -129,7 +129,8 @@ export default function Canvas(p5) {
 
   function drawSource() {
     source.imageMode(p5.CENTER);
-    source.background(143, 201, 255, 30);
+    // source.background(143, 201, 255, 30);
+    source.background(0, 30);
     source.push();
     source.translate(source.width / 2 + offsetX, source.height / 2 + offsetY);
     source.scale(scalar);

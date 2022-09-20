@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import { AppDispatchContext } from "../redux/AppStateProvider";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
@@ -8,6 +9,8 @@ function classNames(...classes) {
 }
 
 export default function MainMenu(props) {
+  const dispatch = useContext(AppDispatchContext);
+
   return (
     <Menu as="div" className="relative inline-block text-right">
       <div>
@@ -88,7 +91,16 @@ export default function MainMenu(props) {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  onClick={props.clickSave}
+                  onClick={() => {
+                    dispatch({
+                      type: "SAVE_PICTURE",
+                      payload: true,
+                    });
+                    setTimeout(
+                      () => dispatch({ type: "SAVE_PICTURE", payload: false }),
+                      400
+                    );
+                  }}
                   href="/#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
