@@ -35,6 +35,18 @@ export default function reducer(state, { type, payload }) {
         savePic: payload,
       };
 
+    case "SHOW_SHORTCUTS":
+      return {
+        ...state,
+        shortcuts: payload,
+      };
+
+    case "HIDE_SHORTCUTS":
+      return {
+        ...state,
+        shortcuts: payload,
+      };
+
     default:
       return state;
   }

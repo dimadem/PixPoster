@@ -50,7 +50,7 @@ export default function InputRequest() {
   console.log("from input request:", data);
 
   return (
-    <form className="m-auto" onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <label htmlFor="search" hidden="enabled">
         search
       </label>

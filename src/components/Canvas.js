@@ -110,20 +110,20 @@ export default function Canvas(p5) {
     drawTarget();
     if (p5.mouseIsPressed) drawResult();
 
-    // frames
+    // render frames to Canvas
     p5.image(source, 0, 0); // original
     p5.image(target, wW, 0); // collage
     p5.image(result, wW, 0); // pixelised
 
-    // green brush
+    // White brush
     p5.noFill();
-    p5.strokeWeight(2);
-    p5.stroke(0, 255, 0);
+    p5.strokeWeight(5);
+    p5.stroke(241, 241, 241);
     p5.rect(p5.mouseX, p5.mouseY, sq, sq);
 
-    // purple brush
+    // Black brush
     p5.noFill();
-    p5.stroke(255, 0, 255);
+    p5.stroke(0);
     p5.rect(p5.mouseX + wW, p5.mouseY, sq, sq);
   };
 

@@ -1,5 +1,5 @@
 // import PropTypes from "prop-types";
-import Header from "./UI/Header";
+import Header from "./Header";
 import UiFrame from "./UiFrame";
 
 export default function Create() {
@@ -10,10 +10,8 @@ export default function Create() {
 
   return (
     <>
-      <div className="min-h-full text-center bg-transparent">
-        <Header />
-        <UiFrame />
-      </div>
+      <Header />
+      <UiFrame />
     </>
   );
 }
