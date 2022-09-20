@@ -31,3 +31,4 @@ yarn-error.log*
 /src/components/hooks/useKeyPress.hook.jsx
 /src/components/ItemCard.jsx
 /src/components/Gallery.jsx
+/src/components/P5Wrapper.jsx
