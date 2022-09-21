@@ -86,8 +86,6 @@
 // );
 
 // useEffect(() => {
-//   // focus on input form
-//   // txtTitle.current.focus();
 
 //   // attach the event listener
 //   document.addEventListener("keydown", handleKeyPress);

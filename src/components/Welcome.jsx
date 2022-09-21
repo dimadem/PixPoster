@@ -6,15 +6,15 @@ export default function Welcome(props) {
       <Header />
       <div className="text-center">
         <div className="mx-auto sm:px-10 text-2xl font-mono">
-          <div className="text-gray-400">
+          <div className="text-gray-400 ">
             It's weird, but it can be hard to start building something from
             scratch.
             <br />
             We need abstraction as a starting point, which is inspired by what
             we see.
             <br />
-            Pixel abstraction is far from a work of art, <br />
-            minimalism will allow you to concentrate on your own feelings
+            Pixel abstraction is far from artwork, <br />
+            but minimalism will allow you to concentrate on your own feelings
             <br /> and use the saved drawing as a stencil for a future work.
           </div>
 
