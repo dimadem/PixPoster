@@ -29,8 +29,7 @@ yarn-error.log*
 
 # refactoring components
 /src/components/hooks/useKeyPress.hook.jsx
-/src/components/UI/Slider.jsx
-/src/components/UI/MainMenu.jsx
-/src/components/UI/Welcome.jsx
-/src/components/UI/ItemCard.jsx
-/src/components/UI/Gallery.jsx
+/src/components/ItemCard.jsx
+/src/components/Gallery.jsx
+/src/components/P5Wrapper.jsx
+

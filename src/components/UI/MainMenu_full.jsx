@@ -35,6 +35,19 @@ export default function MainMenu(props) {
               {({ active }) => (
                 <a
                   href="/#"
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  Account
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="/#"
                   onClick={() =>
                     dispatch({
                       type: "SHOW_SHORTCUTS",
@@ -47,6 +60,34 @@ export default function MainMenu(props) {
                   )}
                 >
                   Shortcuts
+                </a>
+              )}
+            </Menu.Item>
+          </div>
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="/#"
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  <s>Undo</s>
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="/#"
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  <s>Redo</s>
                 </a>
               )}
             </Menu.Item>
@@ -72,6 +113,34 @@ export default function MainMenu(props) {
                   )}
                 >
                   Save
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="/#"
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  Public to gallery
+                </a>
+              )}
+            </Menu.Item>
+          </div>
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="/#"
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  Clear canvas
                 </a>
               )}
             </Menu.Item>

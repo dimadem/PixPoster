@@ -6,8 +6,8 @@ export default function Slider(props) {
       max={props.max}
       step={props.stepRange}
       value={props.defaultValue}
-      className="w-30 h-20 m-0 origin-center rotate-90"
       onChange={props.onChange}
+      className="grayscale contrast-200 brightness-90"
     />
   );
 }

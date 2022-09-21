@@ -1,56 +1,74 @@
-// import { useRef, useState, useEffect } from "react";
-// import useFetch from "../../api/useFetch.hook";
+import { useRef, useEffect, useContext, useState } from "react";
+import useFetch from "../hooks/useFetch.hook";
+import { AppDispatchContext, AppStateContext } from "../redux/AppStateProvider";
 
-export default function InputRequest(props) {
+export default function InputRequest() {
+  const dispatch = useContext(AppDispatchContext);
+  const { data } = useContext(AppStateContext);
   // save input word not controlled
-  // const txtTitle = useRef();
-  // const [input, setInput] = useState();
+  const txtTitle = useRef();
+  const [input, setInput] = useState("");
 
   // array of data with
-  // const [data, setData] = useState([]);
-  // const { get } = useFetch();
+  const { get } = useFetch();
 
   // request API
-  // const link = "https://api.giphy.com/v1/gifs/search?&q=",
-  // search = prompt("Enter the word that you want to see", "coffee"),
-  // keyWord = input,
-  // apiKey = "&api_key=nH3yJQf4ugZ49t2IblSy9XBRHZLRo9iP",
-  // requestUrl = link + keyWord + apiKey;
+  const link = "https://api.giphy.com/v1/gifs/search?&q=",
+    // search = prompt("Enter the word that you want to see", "coffee"),
+    keyWord = input,
+    apiKey = "&api_key=nH3yJQf4ugZ49t2IblSy9XBRHZLRo9iP",
+    requestUrl = link + keyWord + apiKey;
 
   // focus on form input
-  // useEffect(() => {
-  //   txtTitle.current.focus();
-  // }, []);
+  useEffect(() => {
+    txtTitle.current.focus();
+  }, []);
 
   // send request to API
-  // function handleFormSubmit(e) {
-  //   e.preventDefault();
-  //   const title = txtTitle.current.value;
-  //   setInput(title);
-  //   txtTitle.current.value = "";
-  //   get(requestUrl)
-  //     .then((data) => {
-  //       data = data.data;
-  //       setData(data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
-  // console.log("from input request:", data);
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    txtTitle.current.value = "";
+    get(requestUrl)
+      .then((json) => {
+        // data = data.data[0].images.original.url;
+        // data = data.data[0].images.480w_still.url; // before 480??
+        // json = json.data;
+        dispatch({
+          type: "LOAD_JSON",
+          payload: json,
+        });
+        console.log("JSON loaded:", json.data);
+
+        dispatch({
+          type: "SET_DATA",
+          payload: json.data[0].images.original.url,
+        });
+      })
+
+      .catch((error) => console.log(error));
+  }
+  console.log("from input request:", data);
 
   return (
-    <form className="m-auto" onSubmit={props.onHandleFormSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <label htmlFor="search" hidden="enabled">
         search
       </label>
       <input
         className="border-2"
-        ref={props.onTxtTitle}
+        ref={txtTitle}
         placeholder=" search picture"
         type="text"
         inputMode="latin"
         required
       />
-      <input hidden="enabled" type="submit" onClick={props.onClick} />
+      <input
+        hidden="enabled"
+        type="submit"
+        onClick={() => {
+          setInput(txtTitle.current.value);
+        }}
+      />
     </form>
   );
 }
