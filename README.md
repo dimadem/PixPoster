@@ -4,6 +4,8 @@
 
 ![alt text](https://github.com/dimadem/pixposter/blob/main/materials/readmepic.png?raw=true)
 
+=======
+
 <p align="center">Final project for M-C-S </p>
 
 ### Description:
