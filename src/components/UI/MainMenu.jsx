@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function MainMenu(props) {
+export default function MainMenu() {
   const dispatch = useContext(AppDispatchContext);
 
   return (

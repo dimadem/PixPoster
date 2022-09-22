@@ -5,6 +5,7 @@ export default function reducer(state, { type, payload }) {
         ...state,
         json: payload,
       };
+
     case "SET_DATA":
       return {
         ...state,
@@ -45,6 +46,42 @@ export default function reducer(state, { type, payload }) {
       return {
         ...state,
         shortcuts: payload,
+      };
+
+    case "SET+OFFSETX":
+      return {
+        ...state,
+        offsetX: state.offsetX + 5,
+      };
+
+    case "SET-OFFSETX":
+      return {
+        ...state,
+        offsetX: state.offsetX - 5,
+      };
+
+    case "SET+OFFSETY":
+      return {
+        ...state,
+        offsetY: state.offsetY + 5,
+      };
+
+    case "SET-OFFSETY":
+      return {
+        ...state,
+        offsetY: state.offsetY - 5,
+      };
+
+    case "SET+SCALE":
+      return {
+        ...state,
+        scale: state.scale + 0.1,
+      };
+
+    case "SET-SCALE":
+      return {
+        ...state,
+        scale: state.scale - 0.1,
       };
 
     default:

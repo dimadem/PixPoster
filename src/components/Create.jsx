@@ -2,7 +2,7 @@
 import Header from "./Header";
 import UiFrame from "./UiFrame";
 
-export default function Create() {
+export default function Create(props) {
   // // PropTypes
   // Create.propTypes = {
   //   data: PropTypes.string.isRequired,
