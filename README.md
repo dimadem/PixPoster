@@ -4,31 +4,33 @@
 
 ![alt text](https://github.com/dimadem/pixposter/blob/main/materials/readmepic.png?raw=true)
 
-=======
-
 <p align="center">Final project for M-C-S </p>
 
 ### Description:
 
-It's weird, but it can be hard to start building something from scratch. We need abstraction as a starting point, which is inspired by what we see.
+It's weird, but it might be hard to start building something from
+scratch. What if we use abstraction as starting point, which
+inspired by imagine and compiling.
 
-Pixel abstraction is far from a work of art, minimalism will allow you to concentrate on your own feelings and use the saved drawing as a stencil for a future work.
+Pixel abstraction is far from artwork, but minimalism will allow us to concentrate on feelings and use saved posters as a stencil for a future work.
 
 ---
 
 ### How to use
 
-### 💡 Start with search input => choose between diferent variations
+### (1) Use white rectangle as a Stamp-style paint tool
 
-### 🖱 Click a stamp from left canvas => scale it => move it
+### (2) Print with black rectangle on the right side PixPoster
 
-### 💾 Save your work as .png to your computer
+### (3) Dive into with search picture
+
+### (4) Save your work - use button Save and wait a few seconds
 
 <br/>
 
-## How to install:
+## How to install locally:
 
-1. Install via git clone
+1. git clone
 2. npm install
 3. npm start
 4. Use http://localhost:3000
