@@ -19,6 +19,8 @@ const wH = 680;
 let currentImage; // is loaded to source
 let imageLink; //
 let savePicture;
+var invert;
+var bw, wb;
 
 // canvases
 let source, target, result; // canvases
@@ -77,11 +79,17 @@ export default function Canvas(p5) {
     offY,
     scale,
     onSave,
+    invertColor = false,
   }) => {
-    if (onSave === true) savePicture = p5.save(result);
+    if (invertColor === false) {
+      invert = false;
+    } else {
+      invert = true;
+    }
 
-    // prop ImageLink
+    if (onSave === true) savePicture = p5.save(result);
     if (dataLink) {
+      // prop ImageLink
       imageLink = dataLink;
       currentImage = p5.loadImage(imageLink);
       console.log("imglink from Canvas:", imageLink);
@@ -129,8 +137,11 @@ export default function Canvas(p5) {
 
   function drawSource() {
     source.imageMode(p5.CENTER);
-    // source.background(143, 201, 255, 30);
-    source.background(0, 30);
+    if (invert === false) {
+      source.background(0, 30);
+    } else {
+      source.background(241, 241, 241, 30);
+    }
     source.push();
     source.translate(source.width / 2 + offsetX, source.height / 2 + offsetY);
     source.scale(scalar);
@@ -151,11 +162,6 @@ export default function Canvas(p5) {
 
     // paste picture to buffer
     let sourceBuffer = source.get();
-
-    // freeze background
-    // if (p5.frameRate === 1) {
-    //   target.background(241, 241, 241);
-    // }
 
     // copy/paste square function
     if (p5.mouseIsPressed) {
@@ -181,8 +187,13 @@ export default function Canvas(p5) {
 
         // brightness
         b = p5.brightness(c);
-        b < thresholdBrightness ? result.fill(241, 241, 241) : result.fill(0);
 
+        // invert rendering
+        if (invert === false) {
+          b < thresholdBrightness ? result.fill(241, 241, 241) : result.fill(0);
+        } else {
+          b > thresholdBrightness ? result.fill(241, 241, 241) : result.fill(0);
+        }
         // draw result
         result.push();
         result.translate(col * tileW, row * tileH);

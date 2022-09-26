@@ -7,7 +7,7 @@ export default function Slider(props) {
       step={props.stepRange}
       value={props.defaultValue}
       onChange={props.onChange}
-      className="grayscale contrast-200 brightness-90"
+      className="grayscale contrast-200 brightness-90 dark:invert"
     />
   );
 }

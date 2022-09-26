@@ -9,8 +9,16 @@ import useKeyPress from "./hooks/useKeyPress.hook";
 
 export default function UiFrame() {
   const dispatch = useContext(AppDispatchContext);
-  const { data, scale, brightness, sizeRectangle, offsetX, offsetY, savePic } =
-    useContext(AppStateContext);
+  const {
+    data,
+    scale,
+    brightness,
+    sizeRectangle,
+    offsetX,
+    offsetY,
+    savePic,
+    invertMode,
+  } = useContext(AppStateContext);
 
   const onKeyPress = (event) => {
     console.log(`key pressed: ${event.key}`);
@@ -39,7 +47,7 @@ export default function UiFrame() {
   );
 
   return (
-    <div className="mx-auto sm:px-10">
+    <div className="mx-auto sm:px-10 dark:bg-black">
       <Shortcuts />
       <div className="grid grid-cols-2 gap-x-9 pt-1 pb-6">
         <Slider
@@ -54,8 +62,8 @@ export default function UiFrame() {
             });
           }}
         />
-        <div className="text-lg text-center">
-          Rect size: <b>{-sizeRectangle}</b>
+        <div className="text-lg text-center dark:text-gray-50">
+          rect size: <b>{-sizeRectangle}</b>
         </div>
         <Slider
           min={35}
@@ -69,8 +77,8 @@ export default function UiFrame() {
             });
           }}
         />
-        <div className="text-lg text-center">
-          Brightness: <b>{brightness}</b>
+        <div className="text-lg text-center dark:text-gray-50">
+          brightness: <b>{brightness}</b>
         </div>
       </div>
       <div className="flex justify-center grayscale">
@@ -83,6 +91,7 @@ export default function UiFrame() {
           offY={offsetY}
           scale={scale}
           onSave={savePic}
+          invertColor={invertMode}
         />
       </div>
     </div>

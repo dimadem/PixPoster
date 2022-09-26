@@ -2,6 +2,7 @@ import initPic from "../../resources/logo512.png";
 
 const initState = {
   login: false,
+  invertMode: false,
   json: [],
   brightness: 75,
   sizeRectangle: -150,

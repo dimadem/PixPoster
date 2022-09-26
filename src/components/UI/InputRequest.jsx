@@ -55,7 +55,7 @@ export default function InputRequest() {
         search
       </label>
       <input
-        className="border-2"
+        className="border-2 dark:text-white dark:bg-black"
         ref={txtTitle}
         placeholder=" search picture"
         type="text"

@@ -63,26 +63,28 @@ export default function Shortcuts() {
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
                             <div className="grid grid-cols-2">
-                              <span className="text-center text-lg">
-                                Change:
+                              <span className="text-left text-lg">
+                                Invert theme
                               </span>
-                              <h1 className=" pl-3">
+                              <h1 className="pl-3">Click to PixPoster logo</h1>
+                              <span className="text-left text-lg">
+                                Choose picture:
+                              </span>
+                              <h1 className="pl-3">
                                 ALT + CTRL + 1,2,3,4,5,6,7,8,9,0
                               </h1>
-                              <span className="text-center text-lg">
+                              <span className="text-left text-lg">
                                 Navigate:
                               </span>
                               <h1 className="text-left pl-3">
                                 SHIFT + ArrowUp, ArrowDown, ArrowLeft,
                                 ArrowRight
                               </h1>
-                              <span className="text-center text-lg">
-                                Scale:
-                              </span>
+                              <span className="text-left text-lg">Scale:</span>
                               <h1 className="text-left pl-3">
                                 ALT + ArrowUp, ArrowDown
                               </h1>
-                              <span className="text-center text-lg">
+                              <span className="text-left text-lg">
                                 Reset page:
                               </span>
                               <h1 className="text-left pl-3">CTRL + R</h1>

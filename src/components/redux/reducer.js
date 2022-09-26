@@ -1,5 +1,10 @@
 export default function reducer(state, { type, payload }) {
   switch (type) {
+    case "INVERT_MODE":
+      return {
+        ...state,
+        invertMode: !state.invertMode,
+      };
     case "LOAD_JSON":
       return {
         ...state,
