@@ -47,7 +47,7 @@ export default function UiFrame() {
   );
 
   return (
-    <div className="mx-auto sm:px-10 dark:bg-black">
+    <div className="mx-auto sm:px-10 pb-10 dark:bg-black">
       <Shortcuts />
       <div className="grid grid-cols-2 gap-x-9 pt-1 pb-6">
         <Slider
