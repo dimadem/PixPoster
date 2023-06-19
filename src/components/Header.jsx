@@ -9,8 +9,9 @@ export default function Header() {
   const dispatch = useContext(AppDispatchContext);
   const { login } = useContext(AppStateContext);
   useInvertMode();
+
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-6 sm:px-6 dark:bg-black">
+    <div className="flex mx-auto max-w-7xl px-4 py-6 sm:px-6 dark:bg-black justify-center">
       <div className="grid grid-cols-3 place-items-center">
         <div>{login ? <InputRequest /> : null}</div>
         <img
@@ -23,7 +24,7 @@ export default function Header() {
           height="47"
           alt="logo"
         />
-        <div> {login ? <MainMenu /> : null}</div>
+        <div>{login ? <MainMenu /> : null}</div>
       </div>
     </div>
   );

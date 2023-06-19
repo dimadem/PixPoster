@@ -9,6 +9,9 @@
 // https://gorillasun.de/blog/working-with-svgs-in-p5js
 // import "p5.js-svg";
 
+// ditering
+// https://habr.com/ru/company/wunderfund/blog/680154/
+
 // Resolutios
 const cW = 680 * 2;
 const cH = 680;
