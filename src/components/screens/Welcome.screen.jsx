@@ -1,6 +1,6 @@
-import Header from "./Header";
+import Header from "../Header";
 
-export default function Welcome(props) {
+export default function WelcomeScreen({ onClick }) {
   return (
     <>
       <Header />
@@ -32,7 +32,7 @@ export default function Welcome(props) {
       <div className="text-center pb-40 dark:bg-black">
         <button
           className="inline-flex justify-center rounded-none border border-gray-300 bg-white px-2 py-4 text-lg font-mono font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-white dark:bg-black dark:border-black dark:hover:border-white"
-          onClick={props.onClick}
+          onClick={onClick}
         >
           Create PixPoster
         </button>

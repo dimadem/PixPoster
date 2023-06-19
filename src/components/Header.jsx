@@ -11,9 +11,10 @@ export default function Header() {
   useInvertMode();
 
   return (
-    <div className="flex mx-auto max-w-7xl px-4 py-6 sm:px-6 dark:bg-black justify-center">
+    <div className="px-4 py-6 sm:px-6 dark:bg-black w-full">
       <div className="grid grid-cols-3 place-items-center">
         <div>{login ? <InputRequest /> : null}</div>
+        {/* LOGO */}
         <img
           onClick={() => {
             dispatch({ type: "INVERT_MODE", payload: true });

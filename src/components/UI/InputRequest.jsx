@@ -14,10 +14,10 @@ export default function InputRequest() {
 
   // request API
   const link = "https://api.giphy.com/v1/gifs/search?&q=",
-    // search = prompt("Enter the word that you want to see", "coffee"),
     keyWord = input,
-    apiKey = "&api_key=nH3yJQf4ugZ49t2IblSy9XBRHZLRo9iP",
-    requestUrl = link + keyWord + apiKey;
+    apiKey = "&api_key=nH3yJQf4ugZ49t2IblSy9XBRHZLRo9iP";
+
+  const requestUrl = link + keyWord + apiKey;
 
   // focus on form input
   useEffect(() => {
@@ -30,9 +30,6 @@ export default function InputRequest() {
     txtTitle.current.value = "";
     get(requestUrl)
       .then((json) => {
-        // data = data.data[0].images.original.url;
-        // data = data.data[0].images.480w_still.url; // before 480??
-        // json = json.data;
         dispatch({
           type: "LOAD_JSON",
           payload: json,

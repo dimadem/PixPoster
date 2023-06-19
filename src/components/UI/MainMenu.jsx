@@ -3,6 +3,7 @@ import { Fragment, useContext } from "react";
 import { AppDispatchContext } from "../redux/AppStateProvider";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Shortcuts from "./Shortcuts";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -13,6 +14,7 @@ export default function MainMenu() {
 
   return (
     <Menu as="div" className="relative inline-block text-right">
+      <Shortcuts />
       <div>
         <Menu.Button className="inline-flex justify-center rounded-none border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100  dark:bg-black dark:text-gray-50">
           menu
